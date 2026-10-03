@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Fresh Floor Cleaner",
+    "category": "Floor Care",
+    "price": 850,
+    "oldPrice": 1000,
+    "rating": 4.8,
+    "image": "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80MV9waG90b19vZl9zcHJheV9ib3R0bGVfbWluaW1hbF9pc29sYXRlZF9vbl90b19kNjQwNDE0NS0zNTY2LTRjMGUtYTI0NC02ZDFhNzU2MzVhYjJfMS5wbmc.png",
+    "badge": "Popular"
+  },
+  {
+    "id": 2,
+    "name": "Sparkle Glass Cleaner",
+    "category": "Glass Cleaners",
+    "price": 650,
+    "oldPrice": 750,
+    "rating": 4.7,
+    "image": "https://wallpapers.com/images/hd/large-spray-bottle-png-24-kn0s3tazmgnrmvwl.png",
+    "badge": "Best Seller"
+  },
+  {
+    "id": 3,
+    "name": "Power Bathroom Cleaner",
+    "category": "Bathroom",
+    "price": 780,
+    "oldPrice": 900,
+    "rating": 4.9,
+    "image": "https://pngset.com/download-free-png-auzgd",
+    "badge": "Popular"
+  },
+  {
+    "id": 4,
+    "name": "Fresh Laundry Liquid",
+    "category": "Laundry",
+    "price": 1200,
+    "oldPrice": 1400,
+    "rating": 4.8,
+    "image":  "https://www.pngkey.com/png/detail/268-2681968_windex-spray-bottle-fantastik-cleaner.png",
+    "badge": "New"
+  }
+]

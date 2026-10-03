@@ -1,0 +1,552 @@
+{
+  "categories": [
+    {
+      "slug": "floor-care",
+      "name": "Floor Care",
+      "description": "Keep your hardwood, marble, and tile floors spotless and fragrant.",
+      "icon": "🧹",
+      "sortOrder": 1
+    },
+    {
+      "slug": "bathroom",
+      "name": "Bathroom",
+      "description": "Powerful limescale, soap scum, and tile cleaners for sparkling freshness.",
+      "icon": "🛁",
+      "sortOrder": 2
+    },
+    {
+      "slug": "kitchen",
+      "name": "Kitchen",
+      "description": "Cut grease, grime, and food residue on countertops, stoves, and ovens.",
+      "icon": "🍳",
+      "sortOrder": 3
+    },
+    {
+      "slug": "laundry",
+      "name": "Laundry",
+      "description": "Enzyme-boosted liquid detergents and fabric softeners for crisp clothes.",
+      "icon": "🧺",
+      "sortOrder": 4
+    },
+    {
+      "slug": "glass-cleaners",
+      "name": "Glass Cleaners",
+      "description": "Crystal-clear, anti-fog, and streak-free formulas for mirrors and windows.",
+      "icon": "🪟",
+      "sortOrder": 5
+    },
+    {
+      "slug": "dishwashing",
+      "name": "Dishwashing",
+      "description": "Tough on grease, gentle on hands with fast-rinse foam technology.",
+      "icon": "🧼",
+      "sortOrder": 6
+    }
+  ],
+  "products": [
+    {
+      "sku": "FC-101",
+      "name": "Fresh Citrus Floor Cleaner",
+      "description": "Triple-action lemon floor disinfectant that leaves high gloss shine with zero sticky residue.",
+      "categorySlug": "floor-care",
+      "regularPrice": 1050,
+      "salePrice": 850,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "Popular",
+      "rating": 4.8,
+      "reviewCount": 142
+    },
+    {
+      "sku": "FC-102",
+      "name": "Marble & Granite Luxe Polish",
+      "description": "pH-neutral natural stone formula designed to preserve sealant and bring out natural marble veins.",
+      "categorySlug": "floor-care",
+      "regularPrice": 1200,
+      "salePrice": 980,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": false,
+      "badge": "Premium",
+      "rating": 4.9,
+      "reviewCount": 98
+    },
+    {
+      "sku": "FC-103",
+      "name": "Hardwood Floor Conditioner",
+      "description": "Enriched with organic plant waxes to nourish wood grains and prevent water swelling.",
+      "categorySlug": "floor-care",
+      "regularPrice": 1350,
+      "salePrice": 1100,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Eco-Safe",
+      "rating": 4.7,
+      "reviewCount": 64
+    },
+    {
+      "sku": "FC-104",
+      "name": "Tile & Grout Deep Sanitizer",
+      "description": "Penetrates porous grout lines to lift trapped dirt, mold spots, and everyday grime easily.",
+      "categorySlug": "floor-care",
+      "regularPrice": 800,
+      "salePrice": 680,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Fast Action",
+      "rating": 4.6,
+      "reviewCount": 82
+    },
+    {
+      "sku": "BA-201",
+      "name": "Power Foam Bathroom Cleaner",
+      "description": "Active expanding foam dissolves soap scum, hard water stains, and yellow ceramic buildup.",
+      "categorySlug": "bathroom",
+      "regularPrice": 920,
+      "salePrice": 780,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "Best Seller",
+      "rating": 4.9,
+      "reviewCount": 215
+    },
+    {
+      "sku": "BA-202",
+      "name": "Ultra Descaling Toilet Gel",
+      "description": "Curved-neck bottle coats under the rim with thick clinging gel that eradicates 99.9% of bacteria.",
+      "categorySlug": "bathroom",
+      "regularPrice": 580,
+      "salePrice": 490,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": true,
+      "badge": "Antibacterial",
+      "rating": 4.8,
+      "reviewCount": 174
+    },
+    {
+      "sku": "BA-203",
+      "name": "Shower Glass & Tile Protector",
+      "description": "Creates an invisible water-repellent barrier preventing future hard water spotting for up to 30 days.",
+      "categorySlug": "bathroom",
+      "regularPrice": 990,
+      "salePrice": 850,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Hydrophobic",
+      "rating": 4.7,
+      "reviewCount": 91
+    },
+    {
+      "sku": "BA-204",
+      "name": "Mold & Mildew Blaster Spray",
+      "description": "Targeted nozzle spray penetrates damp shower seals and silicone seams to bleach dark mildew spots.",
+      "categorySlug": "bathroom",
+      "regularPrice": 750,
+      "salePrice": 640,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "No Scrub",
+      "rating": 4.6,
+      "reviewCount": 58
+    },
+    {
+      "sku": "KI-301",
+      "name": "Heavy-Duty Kitchen Degreaser",
+      "description": "Dissolves baked-on oils and greasy cooking film on range hoods, fryers, and backsplash tiles.",
+      "categorySlug": "kitchen",
+      "regularPrice": 850,
+      "salePrice": 720,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "High Power",
+      "rating": 4.9,
+      "reviewCount": 188
+    },
+    {
+      "sku": "KI-302",
+      "name": "Multi-Surface Kitchen Spray",
+      "description": "Plant-based daily surface sanitizer safe for dining tables, countertops, and cutting boards.",
+      "categorySlug": "kitchen",
+      "regularPrice": 650,
+      "salePrice": 550,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Food Safe",
+      "rating": 4.7,
+      "reviewCount": 112
+    },
+    {
+      "sku": "KI-303",
+      "name": "Stainless Steel Shiner Spray",
+      "description": "Restores factory shine on refrigerators, microwaves, and sinks with micro-protective silicone coat.",
+      "categorySlug": "kitchen",
+      "regularPrice": 1050,
+      "salePrice": 890,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Fingerprint Free",
+      "rating": 4.8,
+      "reviewCount": 76
+    },
+    {
+      "sku": "KI-304",
+      "name": "Ceramic Cooktop & Oven Paste",
+      "description": "Gentle mineral paste cuts through scorched spillages on glass hobs without scratching.",
+      "categorySlug": "kitchen",
+      "regularPrice": 790,
+      "salePrice": 670,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Non-Scratch",
+      "rating": 4.6,
+      "reviewCount": 63
+    },
+    {
+      "sku": "LA-401",
+      "name": "Fresh Bloom Laundry Liquid",
+      "description": "Concentrated 3x bio-enzyme formulation that cleans whites and colors in both cold and hot cycles.",
+      "categorySlug": "laundry",
+      "regularPrice": 1450,
+      "salePrice": 1250,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "Best Seller",
+      "rating": 4.8,
+      "reviewCount": 230
+    },
+    {
+      "sku": "LA-402",
+      "name": "Silk & Wool Softening Rinse",
+      "description": "Dermatologically tested fabric conditioner that eliminates static cling and softens delicate fibers.",
+      "categorySlug": "laundry",
+      "regularPrice": 1080,
+      "salePrice": 920,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Sensitive Skin",
+      "rating": 4.7,
+      "reviewCount": 84
+    },
+    {
+      "sku": "LA-403",
+      "name": "Oxygen Stain Remover Powder",
+      "description": "Active oxygen micro-bubbles lift tea, coffee, grass, and grease stains without harsh chlorine bleach.",
+      "categorySlug": "laundry",
+      "regularPrice": 950,
+      "salePrice": 790,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": false,
+      "badge": "Color Safe",
+      "rating": 4.9,
+      "reviewCount": 160
+    },
+    {
+      "sku": "LA-404",
+      "name": "Anti-Bacterial Laundry Booster",
+      "description": "Eliminates deep sportswear perspiration odors and sanitizes gym towels and bedding.",
+      "categorySlug": "laundry",
+      "regularPrice": 1000,
+      "salePrice": 860,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Odor Neutralizer",
+      "rating": 4.7,
+      "reviewCount": 67
+    },
+    {
+      "sku": "GL-501",
+      "name": "Sparkle Streak-Free Glass Spray",
+      "description": "Ammonia-free clear glass cleaner that dries in seconds leaving brilliant transparency without haze.",
+      "categorySlug": "glass-cleaners",
+      "regularPrice": 790,
+      "salePrice": 650,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "Fast Evaporate",
+      "rating": 4.8,
+      "reviewCount": 194
+    },
+    {
+      "sku": "GL-502",
+      "name": "Anti-Fog Mirror & Glass Fluid",
+      "description": "Specialized formulation that prevents steam fogging on bathroom mirrors and windshields.",
+      "categorySlug": "glass-cleaners",
+      "regularPrice": 890,
+      "salePrice": 740,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Anti-Steam",
+      "rating": 4.7,
+      "reviewCount": 89
+    },
+    {
+      "sku": "GL-503",
+      "name": "Window Exterior Rain Repel",
+      "description": "Hydrophobic exterior window solution causes raindrops to bead off, keeping outdoor glass clean longer.",
+      "categorySlug": "glass-cleaners",
+      "regularPrice": 1100,
+      "salePrice": 890,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "All Weather",
+      "rating": 4.9,
+      "reviewCount": 104
+    },
+    {
+      "sku": "GL-504",
+      "name": "Tech Screen & Lens Cleaner",
+      "description": "Ultra-gentle formulation with static-resistant shield for OLED TVs, laptops, smartphones, and eyewear.",
+      "categorySlug": "glass-cleaners",
+      "regularPrice": 620,
+      "salePrice": 520,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Alcohol-Free",
+      "rating": 4.6,
+      "reviewCount": 73
+    },
+    {
+      "sku": "DW-601",
+      "name": "Citrus Burst Dishwashing Gel",
+      "description": "Ultra-concentrated liquid with natural lemon zest extracts that strips thick grease in 1 drop.",
+      "categorySlug": "dishwashing",
+      "regularPrice": 550,
+      "salePrice": 450,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": true,
+      "badge": "Top Rated",
+      "rating": 4.9,
+      "reviewCount": 280
+    },
+    {
+      "sku": "DW-602",
+      "name": "Eco Clean Dishwasher Tablets (30pk)",
+      "description": "Water-soluble pods with built-in salt and rinse-aid for spot-free silverware and sparkling glassware.",
+      "categorySlug": "dishwashing",
+      "regularPrice": 1600,
+      "salePrice": 1350,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": true,
+      "isBestSeller": false,
+      "badge": "All-in-1",
+      "rating": 4.8,
+      "reviewCount": 147
+    },
+    {
+      "sku": "DW-603",
+      "name": "Baby Bottle & Dish Foam Wash",
+      "description": "Hypoallergenic, fragrance-free foaming pump soap safely rinses away milk film and baby food residues.",
+      "categorySlug": "dishwashing",
+      "regularPrice": 790,
+      "salePrice": 680,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "100% Organic",
+      "rating": 4.9,
+      "reviewCount": 95
+    },
+    {
+      "sku": "DW-604",
+      "name": "Sparkling Glass Rinse Aid",
+      "description": "Dishwasher accelerator that speeds drying and stops calcium deposit cloudiness on wine glasses.",
+      "categorySlug": "dishwashing",
+      "regularPrice": 700,
+      "salePrice": 590,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      "stock": 50,
+      "lowStockThreshold": 5,
+      "isActive": true,
+      "isFeatured": false,
+      "isBestSeller": false,
+      "badge": "Zero Watermarks",
+      "rating": 4.7,
+      "reviewCount": 62
+    }
+  ]
+}
