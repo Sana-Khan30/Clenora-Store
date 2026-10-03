@@ -7,6 +7,9 @@ mongoose.connection.on('error', (err) => console.error('MongoDB error:', err.mes
 mongoose.connection.on('disconnected', () => console.warn('MongoDB disconnected'));
 
 async function connectDB() {
+  if (mongoose.connection.readyState >= 1) {
+    return;
+  }
   await mongoose.connect(env.MONGODB_URI, {
     serverSelectionTimeoutMS: 10000,
     maxPoolSize: 10,

@@ -28,6 +28,11 @@ app.use(
         return callback(null, true);
       }
 
+      // Automatically allow frontend deployed on Vercel
+      if (/^https:\/\/[a-z0-9-]+(\.[a-z0-9-]+)?\.vercel\.app$/.test(origin)) {
+        return callback(null, true);
+      }
+
       // Allow localhost in non-production environments
       if (!env.isProduction && /^http:\/\/localhost(:\d+)?$/.test(origin)) {
         return callback(null, true);
