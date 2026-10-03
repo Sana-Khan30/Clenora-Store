@@ -12,10 +12,12 @@ function ThreeLoader({ onComplete }) {
 
   const [finished, setFinished] = useState(false);
 
-  // Keep onComplete reference current without triggering effect re-runs
+  // Keep latest onComplete reference without restarting effect
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
+
+  const finish = useRef(() => {});
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -37,29 +39,29 @@ function ThreeLoader({ onComplete }) {
        RENDERER
     ========================= */
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias: false, // Turned off for max FPS & low battery usage
       alpha: true,
       powerPreference: "high-performance",
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
     mount.appendChild(renderer.domElement);
 
     /* =========================
-       PARTICLES / DUST
+       LIGHTWEIGHT PARTICLES (160)
     ========================= */
-    const particleCount = 450;
+    const particleCount = 160;
     const positions = new Float32Array(particleCount * 3);
     const speeds = [];
 
     for (let i = 0; i < particleCount; i++) {
       const index = i * 3;
-      positions[index] = (Math.random() - 0.5) * 13;
-      positions[index + 1] = (Math.random() - 0.5) * 8;
+      positions[index] = (Math.random() - 0.5) * 14;
+      positions[index + 1] = (Math.random() - 0.5) * 9;
       positions[index + 2] = (Math.random() - 0.5) * 2;
 
       speeds.push({
-        x: (Math.random() - 0.5) * 0.003,
+        x: (Math.random() - 0.5) * 0.004,
         y: Math.random() * 0.008 + 0.002,
       });
     }
@@ -72,30 +74,29 @@ function ThreeLoader({ onComplete }) {
 
     const particleMaterial = new THREE.PointsMaterial({
       color: 0x93c5fd,
-      size: 0.06,
+      size: 0.07,
       transparent: true,
-      opacity: 0.55,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.5,
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
     /* =========================
-       BUBBLES
+       BUBBLES (12)
     ========================= */
     const bubbleGroup = new THREE.Group();
     const bubbleMaterial = new THREE.MeshBasicMaterial({
       color: 0x7eeeff,
       transparent: true,
-      opacity: 0.28,
+      opacity: 0.25,
     });
 
     const bubbleData = [];
-    const bubbleGeo = new THREE.SphereGeometry(1, 10, 10);
+    const bubbleGeo = new THREE.SphereGeometry(1, 8, 8);
 
-    for (let i = 0; i < 24; i++) {
-      const size = Math.random() * 0.09 + 0.025;
+    for (let i = 0; i < 12; i++) {
+      const size = Math.random() * 0.08 + 0.03;
       const bubble = new THREE.Mesh(bubbleGeo, bubbleMaterial);
       bubble.scale.set(size, size, size);
       bubble.position.set(
@@ -106,7 +107,7 @@ function ThreeLoader({ onComplete }) {
 
       bubbleData.push({
         mesh: bubble,
-        speed: Math.random() * 0.012 + 0.004,
+        speed: Math.random() * 0.015 + 0.005,
         offset: Math.random() * Math.PI * 2,
       });
 
@@ -115,13 +116,13 @@ function ThreeLoader({ onComplete }) {
     scene.add(bubbleGroup);
 
     /* =========================
-       ANIMATION LOOP
+       FAST & SMOOTH ANIMATION
     ========================= */
     const startTime = performance.now();
     let animationId = null;
     let hasCompleted = false;
 
-    function finish() {
+    finish.current = () => {
       if (hasCompleted) return;
       hasCompleted = true;
       setFinished(true);
@@ -130,87 +131,70 @@ function ThreeLoader({ onComplete }) {
         if (onCompleteRef.current) {
           onCompleteRef.current();
         }
-      }, 300);
-    }
+      }, 250);
+    };
 
-    // Safety fallback: guaranteed to dismiss loader after 3.2s even on slow/throttled devices
+    // Hard fallback timeout: 2.2s max duration
     const safetyTimer = setTimeout(() => {
-      finish();
-    }, 3200);
+      finish.current();
+    }, 2200);
 
     function animate() {
       animationId = requestAnimationFrame(animate);
 
       const elapsed = (performance.now() - startTime) / 1000;
 
-      /* Particle Movement */
-      const positionArray = particleGeometry.attributes.position.array;
+      /* Fast Wipe Curve (0.2s to 1.2s) */
+      let progress = 0;
+      if (elapsed > 0.2 && elapsed < 1.2) {
+        progress = (elapsed - 0.2) / 1.0;
+      } else if (elapsed >= 1.2) {
+        progress = 1;
+      }
+
+      // Direct GPU transform - zero layout reflows
+      if (dirtyGlassRef.current) {
+        dirtyGlassRef.current.style.transform = `translate3d(${progress * 115}%, 0, 0)`;
+      }
+      if (cleaningWipeRef.current) {
+        cleaningWipeRef.current.style.transform = `translate3d(${progress * 130 - 20}vw, 0, 0) rotate(-12deg)`;
+      }
+
+      /* Logo Reveal (from 0.6s) */
+      if (elapsed > 0.6 && logoRef.current) {
+        logoRef.current.classList.add("show-logo");
+      }
+
+      /* Lightweight particle movement */
+      const pos = particleGeometry.attributes.position.array;
       for (let i = 0; i < particleCount; i++) {
-        const index = i * 3;
-        if (elapsed < 1.6) {
-          positionArray[index] += speeds[i].x;
-          positionArray[index + 1] -= speeds[i].y * 0.4;
-        } else if (elapsed < 2.4) {
-          positionArray[index] += 0.08;
+        const idx = i * 3;
+        if (elapsed < 1.0) {
+          pos[idx] += speeds[i].x;
+          pos[idx + 1] -= speeds[i].y * 0.3;
         } else {
-          particleMaterial.opacity *= 0.96;
+          pos[idx] += 0.06;
+          particleMaterial.opacity *= 0.97;
         }
       }
       particleGeometry.attributes.position.needsUpdate = true;
 
-      /* Bubble Movement */
+      /* Bubble movement */
       for (let i = 0; i < bubbleData.length; i++) {
-        const item = bubbleData[i];
-        item.mesh.position.y += item.speed;
-        item.mesh.position.x +=
-          Math.sin(elapsed * 1.5 + item.offset) * 0.003;
-
-        if (item.mesh.position.y > 4.5) {
-          item.mesh.position.y = -4.5;
-        }
+        const b = bubbleData[i];
+        b.mesh.position.y += b.speed;
+        if (b.mesh.position.y > 4.5) b.mesh.position.y = -4.5;
       }
 
-      /* Wipe Progress - Direct DOM manipulation (No React re-renders) */
-      let progress = 0;
-      if (elapsed > 0.7 && elapsed < 2.2) {
-        progress = (elapsed - 0.7) / 1.5;
-      } else if (elapsed >= 2.2) {
-        progress = 1;
-      }
-
-      if (dirtyGlassRef.current) {
-        dirtyGlassRef.current.style.transform = `translateX(${progress * 115}%)`;
-      }
-      if (cleaningWipeRef.current) {
-        cleaningWipeRef.current.style.left = `${progress * 120 - 20}%`;
-      }
-
-      /* Logo Reveal */
-      if (elapsed > 1.6 && logoRef.current) {
-        logoRef.current.classList.add("show-logo");
-      }
-
-      /* Render */
       renderer.render(scene, camera);
 
-      /* Complete Animation */
-      if (elapsed >= 2.8 && !hasCompleted) {
-        finish();
+      /* Finish cleanly at 1.7s - No hanging at 80%! */
+      if (elapsed >= 1.7 && !hasCompleted) {
+        finish.current();
       }
     }
 
     animate();
-
-    /* =========================
-       RESIZE LISTENER
-    ========================= */
-    function handleResize() {
-      if (!renderer.domElement) return;
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-    window.addEventListener("resize", handleResize);
 
     /* =========================
        CLEANUP
@@ -218,7 +202,6 @@ function ThreeLoader({ onComplete }) {
     return () => {
       clearTimeout(safetyTimer);
       if (animationId) cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", handleResize);
 
       particleGeometry.dispose();
       particleMaterial.dispose();
@@ -230,10 +213,14 @@ function ThreeLoader({ onComplete }) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
     };
-  }, []); // Run once on mount!
+  }, []);
 
   return (
-    <div className={`three-loader ${finished ? "loader-finish" : ""}`}>
+    <div
+      className={`three-loader ${finished ? "loader-finish" : ""}`}
+      onClick={() => finish.current()}
+      title="Click to skip"
+    >
       {/* THREE CANVAS */}
       <div ref={mountRef} className="three-canvas" />
 
