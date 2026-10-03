@@ -14,7 +14,7 @@ const schema = z.object({
     }),
   JWT_SECRET: z.string().min(32, 'must be at least 32 characters'),
   JWT_EXPIRES_IN: z.string().min(1).default('7d'),
-  CLIENT_URL: z.string().min(1, 'is required'),
+  CLIENT_URL: z.string().default('https://clenora-store-1.onrender.com,http://localhost:5173'),
   CLOUDINARY_CLOUD_NAME: z.string().optional(),
   CLOUDINARY_API_KEY: z.string().optional(),
   CLOUDINARY_API_SECRET: z.string().optional(),
@@ -31,24 +31,22 @@ if (!parsed.success) {
 
 let clientOrigins = [];
 if (parsed.success) {
-  clientOrigins = parsed.data.CLIENT_URL.split(',')
+  const rawOrigins = parsed.data.CLIENT_URL.split(',')
     .map((o) => o.trim().replace(/\/+$/, ''))
     .filter(Boolean);
 
-  for (const origin of clientOrigins) {
-    let url;
+  for (const raw of rawOrigins) {
     try {
-      url = new URL(origin);
+      const url = new URL(raw);
+      clientOrigins.push(url.origin);
     } catch {
-      problems.push(`CLIENT_URL: "${origin}" is not a valid URL`);
-      continue;
+      problems.push(`CLIENT_URL: "${raw}" is not a valid URL`);
     }
-    if (url.origin !== origin) {
-      problems.push(`CLIENT_URL: "${origin}" must be an origin only (no path), e.g. https://example.com`);
-    }
-    if (parsed.data.NODE_ENV === 'production' && url.protocol !== 'https:') {
-      problems.push(`CLIENT_URL: "${origin}" must use https in production`);
-    }
+  }
+
+  // Ensure known deployed frontend origin is always accepted
+  if (!clientOrigins.includes('https://clenora-store-1.onrender.com')) {
+    clientOrigins.push('https://clenora-store-1.onrender.com');
   }
 }
 

@@ -303,11 +303,10 @@ function ThreeLoader({ onComplete }) {
 
 
     /* =========================
-       CLOCK
+       TIMER / CLOCK
     ========================= */
 
-    const clock =
-      new THREE.Clock();
+    const startTime = performance.now();
 
 
     let animationId;
@@ -329,7 +328,7 @@ function ThreeLoader({ onComplete }) {
 
 
       const elapsed =
-        clock.getElapsedTime();
+        (performance.now() - startTime) / 1000;
 
 
       /* -------------------------

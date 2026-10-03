@@ -1,5 +1,6 @@
 // One place that talks to the backend. Every API call goes through request().
-const BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/+$/, "");
+const rawUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").trim().replace(/\/+$/, "");
+const BASE_URL = rawUrl.endsWith("/api") ? rawUrl : `${rawUrl}/api`;
 const TOKEN_KEY = "clenora_token";
 
 let unauthorizedHandler = null;
