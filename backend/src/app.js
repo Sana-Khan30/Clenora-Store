@@ -5,6 +5,7 @@ const env = require('./config/env');
 const sanitize = require('./middleware/sanitize');
 const { globalLimiter } = require('./middleware/rateLimiters');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
+const { connectDB } = require('./config/db');
 const routes = require('./routes');
 
 const app = express();
@@ -50,6 +51,23 @@ app.use(
 app.use(globalLimiter);
 app.use(express.json({ limit: '100kb' }));
 app.use(sanitize);
+
+// Ensure database is connected before handling requests (required for serverless on Vercel)
+app.use(async (req, res, next) => {
+  if (req.path === '/health' || req.path === '/api/health') {
+    return next();
+  }
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('Database connection failed in middleware:', err.message);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to connect to database. Please check MongoDB Atlas connection and Network Access.',
+    });
+  }
+});
 
 // Mount routes under both /api and root so requests succeed even if /api is omitted in frontend config
 app.use('/api', routes);
