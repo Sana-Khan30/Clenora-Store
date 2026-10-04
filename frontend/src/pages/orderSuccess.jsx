@@ -25,7 +25,7 @@ function OrderSuccess({
         </div>
 
         <span className="section-label">ORDER CONFIRMED</span>
-        <h1>Thank You for Choosing CLEANY!</h1>
+        <h1>Thank You for Choosing CLENORA!</h1>
         <p className="success-message">
           Your order has been recorded successfully. Our warehouse team is
           preparing your fresh cleaning supplies for rapid dispatch.

@@ -26,20 +26,20 @@ function Footer({ openPage }) {
 
   const supportContent = {
     contact: {
-      title: "Contact CLEANY Support",
-      body: "Need help or product advice? Reach out to our hygiene experts:\n\n📞 Phone: 0800-CLEANY (Mon-Sat, 9am - 8pm)\n✉️ Email: support@cleany.pk\n📍 Headquarters: Technology Park, Clean Street, Lahore",
+      title: "Contact CLENORA Support",
+      body: "Need help or product advice? Reach out to our hygiene experts:\n\n📞 Phone: 0800-CLENORA (Mon-Sat, 9am - 8pm)\n✉️ Email: info@clenorastore.com\n📍 Headquarters: Technology Park, Lahore & Karachi, Pakistan",
     },
     faq: {
       title: "Frequently Asked Questions",
-      body: "• Are your products safe around children and pets?\nYes! All CLEANY formulas are biodegradable, phosphate-free, and formulated without toxic fumes.\n\n• What is the delivery time?\nDeliveries in major metropolitan cities arrive in 24–48 hours. Nationwide orders arrive within 2–4 business days.\n\n• Can I return an item?\nYes, we offer a 100% 7-day hassle-free money-back guarantee on unopened bottles.",
+      body: "• Are your products safe around children and pets?\nYes! All CLENORA formulas are biodegradable, phosphate-free, and formulated without toxic fumes.\n\n• What is the delivery time?\nDeliveries in major metropolitan cities arrive in 24–48 hours. Nationwide orders arrive within 2–4 business days.\n\n• Can I return an item?\nYes, we offer a 100% 7-day hassle-free money-back guarantee on unopened bottles.",
     },
     shipping: {
       title: "Shipping & Delivery Policy",
-      body: "• Free standard shipping on all orders over Rs. 1500.\n• Flat shipping rate of Rs. 150 on orders under Rs. 1500.\n• Real-time SMS tracking updates sent with every order ID.",
+      body: "• Free standard shipping on all orders over Rs. 1500.\n• Flat shipping rate of Rs. 150 on orders under Rs. 1500.\n• Real-time SMS & Email tracking updates sent with every order ID.",
     },
     returns: {
       title: "Returns & Guarantee",
-      body: "We stand behind our clean formulas. If you are not completely satisfied with the cleaning power of any CLEANY product, contact us within 7 days for a full replacement or refund.",
+      body: "We stand behind our clean formulas. If you are not completely satisfied with the cleaning power of any CLENORA product, contact us at info@clenorastore.com within 7 days for a full replacement or refund.",
     },
   };
 
@@ -54,12 +54,12 @@ function Footer({ openPage }) {
               onClick={() => handleNav("home")}
               role="button"
               tabIndex={0}
-              aria-label="CLEANY Home"
+              aria-label="CLENORA Home"
             >
-              <img src={cleanyLogo} alt="CLEANY" />
+              <img src={cleanyLogo} alt="CLENORA" />
             </div>
             <p className="footer-about">
-              CLEANY is committed to modern, hospital-grade home hygiene.
+              CLENORA is committed to modern, hospital-grade home hygiene.
               Science-backed formulations that cut grease, eliminate germs, and
               leave an invigorating fresh scent—safe for your family and the
               planet.
@@ -71,7 +71,7 @@ function Footer({ openPage }) {
                 target="_blank"
                 rel="noreferrer"
                 className="social-icon-btn social-fb"
-                aria-label="Visit CLEANY Facebook"
+                aria-label="Visit CLENORA Facebook"
                 title="Facebook"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -83,7 +83,7 @@ function Footer({ openPage }) {
                 target="_blank"
                 rel="noreferrer"
                 className="social-icon-btn social-ig"
-                aria-label="Visit CLEANY Instagram"
+                aria-label="Visit CLENORA Instagram"
                 title="Instagram"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -96,7 +96,7 @@ function Footer({ openPage }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon-btn social-wa"
-                  aria-label="Contact CLEANY on WhatsApp"
+                  aria-label="Contact CLENORA on WhatsApp"
                   title="WhatsApp"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -229,7 +229,7 @@ function Footer({ openPage }) {
               </form>
               {subscribed && (
                 <p className="newsletter-success">
-                  ✓ Thank you! You are subscribed to CLEANY updates.
+                  ✓ Thank you! You are subscribed to CLENORA updates.
                 </p>
               )}
             </div>
@@ -239,7 +239,7 @@ function Footer({ openPage }) {
         {/* BOTTOM BAR */}
         <div className="footer-bottom">
           <div className="footer-bottom-container">
-            <p>© 2026 CLEANY. All rights reserved. Powered by Clean Science.</p>
+            <p>© 2026 CLENORA. All rights reserved. Powered by Clean Science.</p>
             <div className="footer-bottom-badges">
               <span>🌱 Eco-Certified</span>
               <span>🛡️ 100% Non-Toxic</span>

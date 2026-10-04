@@ -223,7 +223,7 @@ function Account({ lastOrder, orderId, openPage }) {
   return (
     <section className="account-page">
       <div className="page-heading">
-        <span className="section-label">MY CLEANY ACCOUNT</span>
+        <span className="section-label">MY CLENORA ACCOUNT</span>
         <h1>Account Dashboard</h1>
         <p>Manage your orders, delivery preferences, and profile settings.</p>
       </div>
@@ -586,7 +586,7 @@ function Account({ lastOrder, orderId, openPage }) {
         <div className="modal-backdrop-overlay" onClick={() => setAuthModal(null)}>
           <div className="auth-modal-card" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>{authModal === "login" ? "Sign In to CLEANY" : "Create CLEANY Account"}</h3>
+              <h3>{authModal === "login" ? "Sign In to CLENORA" : "Create CLENORA Account"}</h3>
               <button type="button" className="modal-close-btn" onClick={() => setAuthModal(null)}>
                 ✕
               </button>

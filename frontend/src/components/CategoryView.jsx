@@ -65,7 +65,7 @@ function CategoryView({
       {/* HEADER */}
       <div className="category-hero-header">
         <div className="category-hero-content">
-          <span className="section-label">CLEANY CATALOG</span>
+          <span className="section-label">CLENORA CATALOG</span>
           <h1>
             {icon && <span className="cat-header-icon">{icon}</span>}
             {title}
