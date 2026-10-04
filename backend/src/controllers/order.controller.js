@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const orderService = require('../services/order.service');
+const { sendOrderConfirmationEmail } = require('../services/email.service');
 const { pageMeta } = require('../services/product.service');
 const escapeRegex = require('../utils/escapeRegex');
 const ApiError = require('../utils/ApiError');
@@ -25,6 +26,10 @@ async function quote(req, res) {
 // Guests may order (optionalAuth); a logged-in customer's order is linked to their account.
 async function create(req, res) {
   const order = await orderService.placeOrder(req.body, req.user || null);
+  // Asynchronously trigger automated order confirmation email via Hostinger Mail API
+  sendOrderConfirmationEmail(order).catch((err) => {
+    console.error('Email confirmation error:', err.message);
+  });
   return created(res, { order }, 'Order placed');
 }
 

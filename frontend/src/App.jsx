@@ -514,7 +514,6 @@ function App() {
                             aria-label={`Explore ${cat.name}`}
                           >
                             <div className="category-card-top">
-                              <div className="category-icon">{cat.icon}</div>
                               <h3>{cat.name}</h3>
                               <p>{cat.description}</p>
                             </div>

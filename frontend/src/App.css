@@ -2758,6 +2758,41 @@ a {
   border-color: #25d366;
 }
 
+.social-icon-btn.social-email {
+  color: #0284c7;
+}
+
+.social-icon-btn.social-email:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+.footer-email-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  color: #0369a1;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.footer-email-badge:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
 .footer-heading {
   font-size: 15px;
   font-weight: 800;

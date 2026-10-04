@@ -108,7 +108,6 @@ function Sidebar({
               className={currentPage === cat.id ? "active" : ""}
               onClick={() => handleNavigate(cat.id)}
             >
-              <span className="cat-icon">{cat.icon}</span>
               <span>{cat.name}</span>
             </button>
           ))}

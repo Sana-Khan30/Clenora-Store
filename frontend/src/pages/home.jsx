@@ -123,7 +123,6 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
               aria-label={`Explore ${cat.name} category`}
             >
               <div className="category-card-top">
-                <div className="category-icon">{cat.icon}</div>
                 <h3>{cat.name}</h3>
                 <p>{cat.description}</p>
               </div>
@@ -256,7 +255,6 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
 
         <div className="benefits-grid">
           <div className="benefit-card">
-            <div className="benefit-icon">🔬</div>
             <h3>Bio-Enzyme Active</h3>
             <p>
               Micro-enzymes break down grease, milk fats, and proteins at a
@@ -265,7 +263,6 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
           </div>
 
           <div className="benefit-card">
-            <div className="benefit-icon">💨</div>
             <h3>Fast Dry, Zero Streaks</h3>
             <p>
               High-evaporation surface tension agents ensure windows, mirrors,
@@ -274,7 +271,6 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
           </div>
 
           <div className="benefit-card">
-            <div className="benefit-icon">🐾</div>
             <h3>Pet & Child Safe</h3>
             <p>
               Zero phosphates, ammonia, or caustic bleach. Safe for crawling
@@ -283,7 +279,6 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
           </div>
 
           <div className="benefit-card">
-            <div className="benefit-icon">🌿</div>
             <h3>Invigorating Aromatherapy</h3>
             <p>
               Infused with natural essential oils of lemon zest, wild mint, and
