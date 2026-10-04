@@ -2685,23 +2685,61 @@ a {
 }
 
 .social-icon-btn {
-  width: 36px;
-  height: 36px;
-  background: #f0f9ff;
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: var(--primary-dark);
-  transition: var(--transition);
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.social-icon-btn svg {
+  display: block;
+  transition: transform 0.25s ease;
 }
 
 .social-icon-btn:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* Brand specific styling */
+.social-icon-btn.social-fb {
+  color: #1877f2;
+}
+
+.social-icon-btn.social-fb:hover {
+  background: #1877f2;
+  color: #ffffff;
+  border-color: #1877f2;
+}
+
+.social-icon-btn.social-ig {
+  color: #e4405f;
+}
+
+.social-icon-btn.social-ig:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.social-icon-btn.social-wa {
+  color: #25d366;
+}
+
+.social-icon-btn.social-wa:hover {
+  background: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
 }
 
 .footer-heading {
