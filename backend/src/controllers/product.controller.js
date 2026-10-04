@@ -17,6 +17,8 @@ async function assertCategoryExists(id) {
 async function listPublic(req, res) {
   const q = req.valid.query;
   const { items, total } = await listProducts(q);
+  // Edge CDN cache for 2 minutes, stale revalidation for 10 minutes
+  res.set('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=600');
   return ok(res, { items: items.map(publicProduct) }, { meta: pageMeta(q, total) });
 }
 
@@ -25,6 +27,7 @@ async function getPublic(req, res) {
   const where = OBJECT_ID.test(idOrSlug) ? { _id: idOrSlug } : { slug: idOrSlug.toLowerCase() };
   const product = await Product.findOne({ ...where, isActive: true }).populate('category', 'name slug isActive').lean();
   if (!product || !product.category || !product.category.isActive) throw ApiError.notFound('Product not found');
+  res.set('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=600');
   return ok(res, { product: publicProduct(product) });
 }
 

@@ -1,4 +1,4 @@
-import cleaningProducts from "../assets/cleany-product.png";
+import cleaningProducts from "../assets/clenora-products.jpg";
 import ProductCard from "../components/ProductCard";
 import { useStore } from "../context/storeContext";
 
@@ -45,7 +45,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
 
           <p>
             Experience hospital-grade hygiene formulated with gentle plant
-            enzymes. CLEANY removes stubborn grime, grease, and germs while
+            enzymes. CLENORA removes stubborn grime, grease, and germs while
             keeping your indoor air fresh and safe.
           </p>
 
@@ -88,7 +88,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
           <div className="hero-circle" />
           <img
             src={cleaningProducts}
-            alt="CLEANY Premium Cleaning Bottles"
+            alt="CLENORA Premium Cleaning Bottles"
             className="hero-product-image"
           />
         </div>
@@ -156,15 +156,28 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
         </div>
 
         <div className="product-grid">
-          {featuredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              addToCart={addToCart}
-              wishlist={wishlist}
-              toggleWishlist={toggleWishlist}
-            />
-          ))}
+          {featuredProducts.length > 0 ? (
+            featuredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                addToCart={addToCart}
+                wishlist={wishlist}
+                toggleWishlist={toggleWishlist}
+              />
+            ))
+          ) : (
+            [1, 2, 3, 4].map((i) => (
+              <div key={i} className="product-card product-card-skeleton" aria-hidden="true">
+                <div className="product-image-container skeleton-shimmer" style={{ height: "240px" }} />
+                <div className="product-info" style={{ padding: "16px" }}>
+                  <div className="skeleton-shimmer" style={{ width: "40%", height: "14px", borderRadius: "4px", marginBottom: "10px" }} />
+                  <div className="skeleton-shimmer" style={{ width: "85%", height: "18px", borderRadius: "4px", marginBottom: "12px" }} />
+                  <div className="skeleton-shimmer" style={{ width: "50%", height: "20px", borderRadius: "4px" }} />
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
@@ -206,15 +219,28 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
         </div>
 
         <div className="product-grid">
-          {bestSellerProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              addToCart={addToCart}
-              wishlist={wishlist}
-              toggleWishlist={toggleWishlist}
-            />
-          ))}
+          {bestSellerProducts.length > 0 ? (
+            bestSellerProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                addToCart={addToCart}
+                wishlist={wishlist}
+                toggleWishlist={toggleWishlist}
+              />
+            ))
+          ) : (
+            [1, 2, 3, 4].map((i) => (
+              <div key={i} className="product-card product-card-skeleton" aria-hidden="true">
+                <div className="product-image-container skeleton-shimmer" style={{ height: "240px" }} />
+                <div className="product-info" style={{ padding: "16px" }}>
+                  <div className="skeleton-shimmer" style={{ width: "40%", height: "14px", borderRadius: "4px", marginBottom: "10px" }} />
+                  <div className="skeleton-shimmer" style={{ width: "85%", height: "18px", borderRadius: "4px", marginBottom: "12px" }} />
+                  <div className="skeleton-shimmer" style={{ width: "50%", height: "20px", borderRadius: "4px" }} />
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
@@ -267,15 +293,15 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
         </div>
       </section>
 
-      {/* 7. WHY CLEANY */}
+      {/* 7. WHY CLENORA */}
       <section className="why-cleany-section">
         <div className="why-cleany-layout">
           <div className="why-cleany-text">
-            <span className="section-label">THE CLEANY STANDARD</span>
+            <span className="section-label">THE CLENORA STANDARD</span>
             <h2>Re-imagining Modern Home Hygiene</h2>
             <p>
               Most conventional cleaning supplies were designed decades ago with
-              harsh chemicals that irritate skin and lungs. CLEANY was built on
+              harsh chemicals that irritate skin and lungs. CLENORA was built on
               modern chemical engineering: effective, gentle, and sustainable.
             </p>
             <div className="why-points-list">
@@ -321,7 +347,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
         <div className="cta-content">
           <h2>Ready for an Effortlessly Clean Home?</h2>
           <p>
-            Join thousands of satisfied households who switched to CLEANY for
+            Join thousands of satisfied households who switched to CLENORA for
             fresh, residue-free sparkle.
           </p>
           <div className="cta-buttons">

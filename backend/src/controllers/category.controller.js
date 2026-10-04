@@ -29,6 +29,7 @@ async function assertNameFree(name, excludeId) {
 
 async function listPublic(req, res) {
   const items = await Category.find({ isActive: true }).sort({ sortOrder: 1, name: 1 }).lean();
+  res.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=1800');
   return ok(res, { items: items.map(publicCategory) });
 }
 

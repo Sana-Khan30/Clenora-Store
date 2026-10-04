@@ -16,6 +16,7 @@ function shape(s) {
 }
 
 async function getPublic(req, res) {
+  res.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=1800');
   return ok(res, { settings: shape(await getSettings()) });
 }
 

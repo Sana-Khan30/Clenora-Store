@@ -337,9 +337,9 @@ function App() {
     ? null
     : categories.find((c) => c.slug === currentPage) || null;
 
-  // Product pages wait for the catalog; cart, checkout and account never do.
-  const showPage = PAGES_WITHOUT_CATALOG.includes(currentPage) || status === "ready";
-  const waitingForCatalog = !PAGES_WITHOUT_CATALOG.includes(currentPage);
+  // Home, Cart, Checkout and Account render immediately without blocking; specific catalog subpages wait if not cached yet.
+  const showPage = PAGES_WITHOUT_CATALOG.includes(currentPage) || status === "ready" || currentPage === "home";
+  const waitingForCatalog = !PAGES_WITHOUT_CATALOG.includes(currentPage) && currentPage !== "home";
 
   return (
     <>
