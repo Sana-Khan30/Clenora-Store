@@ -315,8 +315,8 @@ function Account({ lastOrder, orderId, openPage }) {
               </div>
               <div className="stat-card">
                 <span className="stat-icon">🚚</span>
-                <strong>Rs. {settings.freeShippingThreshold}</strong>
-                <p>Free Delivery Over</p>
+                <strong>Rs. {settings.shippingFee || 150}</strong>
+                <p>Standard Delivery</p>
               </div>
               <div className="stat-card">
                 <span className="stat-icon">💵</span>

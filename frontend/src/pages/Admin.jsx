@@ -304,6 +304,39 @@ export default function Admin({ openPage }) {
     }
   }
 
+// Helper to compress and convert image to lightweight Data URL (< 120KB)
+function compressImageFile(file, maxDimension = 1000, quality = 0.82) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Failed to read image file."));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error("Invalid image format."));
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxDimension || height > maxDimension) {
+          if (width > height) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          } else {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL("image/jpeg", quality);
+        resolve(dataUrl);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
   /* ----------------------------------------------------
      PRODUCT ACTIONS
   ---------------------------------------------------- */
@@ -319,6 +352,8 @@ export default function Admin({ openPage }) {
       description: "",
       badge: "",
       images: [],
+      rating: 4.9,
+      reviewCount: 15,
       isActive: true,
       isFeatured: false,
       isBestSeller: false,
@@ -338,6 +373,8 @@ export default function Admin({ openPage }) {
       description: p.description || "",
       badge: p.badge || "",
       images: p.images || [],
+      rating: p.rating ?? 4.9,
+      reviewCount: p.reviewCount ?? 0,
       isActive: p.isActive,
       isFeatured: p.isFeatured,
       isBestSeller: p.isBestSeller,
@@ -350,13 +387,26 @@ export default function Admin({ openPage }) {
     if (!file) return;
     setUploadingImage(true);
     try {
-      const res = await api.adminUploadImage(file);
-      const newImg = res.data.image; // { url, publicId }
+      let uploadedImg = null;
+      try {
+        const res = await api.adminUploadImage(file);
+        if (res?.data?.image?.url) {
+          uploadedImg = res.data.image;
+        }
+      } catch (uploadErr) {
+        console.warn("Cloudinary upload failed, falling back to local compressed image:", uploadErr.message);
+      }
+
+      if (!uploadedImg) {
+        const compressedDataUrl = await compressImageFile(file);
+        uploadedImg = { url: compressedDataUrl, publicId: null };
+      }
+
       setProductForm((prev) => ({
         ...prev,
-        images: [...prev.images, newImg],
+        images: [...prev.images, uploadedImg],
       }));
-      showToast("Image uploaded successfully.");
+      showToast("Product image added successfully.");
     } catch (err) {
       showToast(err.message || "Image upload failed.", "error");
     } finally {
@@ -386,6 +436,8 @@ export default function Admin({ openPage }) {
         description: productForm.description.trim(),
         badge: productForm.badge.trim(),
         images: productForm.images,
+        rating: Number(productForm.rating) || 5.0,
+        reviewCount: Number(productForm.reviewCount) || 0,
         isActive: Boolean(productForm.isActive),
         isFeatured: Boolean(productForm.isFeatured),
         isBestSeller: Boolean(productForm.isBestSeller),
@@ -1020,6 +1072,9 @@ export default function Admin({ openPage }) {
                           <td>
                             <strong>{p.name}</strong>
                             {p.badge && <span className="admin-badge" style={{ marginLeft: 6, fontSize: "0.65rem" }}>{p.badge}</span>}
+                            <div style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: 2 }}>
+                              <span style={{ color: "#f59e0b", fontWeight: "bold" }}>★ {p.rating || 5.0}</span> ({p.reviewCount || 0} reviews)
+                            </div>
                           </td>
                           <td><code>{p.sku}</code></td>
                           <td>{p.category?.name || "—"}</td>
@@ -1710,6 +1765,32 @@ export default function Admin({ openPage }) {
                   />
                 </div>
 
+                <div className="admin-form-group">
+                  <label htmlFor="p-rating">Product Rating (Stars 1.0 - 5.0)</label>
+                  <input
+                    id="p-rating"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value={productForm.rating}
+                    onChange={(e) => setProductForm({ ...productForm, rating: e.target.value })}
+                    placeholder="e.g. 4.9"
+                  />
+                </div>
+
+                <div className="admin-form-group">
+                  <label htmlFor="p-reviews">Review Count (Display Number)</label>
+                  <input
+                    id="p-reviews"
+                    type="number"
+                    min="0"
+                    value={productForm.reviewCount}
+                    onChange={(e) => setProductForm({ ...productForm, reviewCount: e.target.value })}
+                    placeholder="e.g. 15"
+                  />
+                </div>
+
                 <div className="admin-form-group full-span">
                   <label htmlFor="p-desc">Product Description</label>
                   <textarea
@@ -1723,21 +1804,21 @@ export default function Admin({ openPage }) {
 
                 {/* Cloud Image Upload */}
                 <div className="admin-form-group full-span">
-                  <label>Product Images (Cloud Upload)</label>
+                  <label>Product Images (Upload or Attach)</label>
                   <input
                     type="file"
                     accept="image/jpeg,image/png,image/webp"
                     onChange={handleImageUpload}
                     disabled={uploadingImage || productForm.images.length >= 8}
                   />
-                  {uploadingImage && <small style={{ color: "var(--primary)" }}>Uploading to Cloudinary…</small>}
+                  {uploadingImage && <small style={{ color: "var(--primary)" }}>Processing & Uploading image…</small>}
 
                   {/* Manual Image URL adder fallback */}
                   <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
                     <input
                       id="manual-img-url"
-                      type="url"
-                      placeholder="Or paste an existing https:// image URL"
+                      type="text"
+                      placeholder="Or paste an image URL (https://... or data:image/...)"
                     />
                     <button
                       type="button"
@@ -1745,7 +1826,7 @@ export default function Admin({ openPage }) {
                       onClick={() => {
                         const input = document.getElementById("manual-img-url");
                         const val = input?.value?.trim();
-                        if (val && val.startsWith("https://")) {
+                        if (val) {
                           setProductForm((prev) => ({
                             ...prev,
                             images: [...prev.images, { url: val, publicId: null }],

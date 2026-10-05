@@ -9,7 +9,19 @@ async function uploadImage(req, res) {
   if (!real || real !== req.file.mimetype) {
     throw ApiError.badRequest('The file is not a valid JPG, PNG or WebP image');
   }
-  const image = await cloudinaryService.uploadImageBuffer(req.file.buffer);
+
+  let image;
+  try {
+    image = await cloudinaryService.uploadImageBuffer(req.file.buffer);
+  } catch (err) {
+    console.warn('Cloudinary upload unavailable, falling back to base64 data URL:', err.message);
+    const base64 = req.file.buffer.toString('base64');
+    image = {
+      url: `data:${real};base64,${base64}`,
+      publicId: null,
+    };
+  }
+
   return created(res, { image }, 'Image uploaded');
 }
 

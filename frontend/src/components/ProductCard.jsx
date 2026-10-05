@@ -88,12 +88,12 @@ function ProductCard({ product, addToCart, wishlist = [], toggleWishlist }) {
           <p className="product-short-desc">{product.description}</p>
         )}
 
-        <div className="product-rating" aria-label={`Rating ${product.rating} out of 5 stars`}>
+        <div className="product-rating" aria-label={`Rating ${product.rating || 5.0} out of 5 stars`}>
           <span className="rating-star">★</span>
-          <span className="rating-score">{product.rating}</span>
-          {product.reviews && (
+          <span className="rating-score">{product.rating && Number(product.rating) > 0 ? product.rating : "5.0"}</span>
+          {Number(product.reviews) > 0 ? (
             <span className="rating-reviews">({product.reviews})</span>
-          )}
+          ) : null}
         </div>
 
         {product.lowStock && !outOfStock && (

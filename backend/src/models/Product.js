@@ -4,7 +4,7 @@ const isWhole = { validator: (v) => v == null || Number.isInteger(v), message: '
 
 const imageSchema = new mongoose.Schema(
   {
-    url: { type: String, required: true, maxlength: 500 },
+    url: { type: String, required: true, maxlength: 3000000 },
     publicId: { type: String, maxlength: 200, default: null },
   },
   { _id: false }

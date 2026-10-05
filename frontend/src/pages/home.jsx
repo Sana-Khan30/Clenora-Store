@@ -75,7 +75,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
             </div>
             <div className="trust-pill">
               <span className="trust-icon">🚚</span>
-              <span>Free Delivery over Rs. 1500</span>
+              <span>Nationwide Fast Delivery</span>
             </div>
             <div className="trust-pill">
               <span className="trust-icon">🛡️</span>

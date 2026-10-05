@@ -29,11 +29,10 @@ const updateCategory = createCategory
 
 // ---------- products ----------
 const image = z.object({
-  url: z.string().max(500).refine((u) => /^https:\/\/[^\s]+$/.test(u), 'Image URL must start with https://'),
+  url: z.string().min(1).max(3000000),
   publicId: z
     .string()
     .max(200)
-    .refine((id) => id.startsWith(`${FOLDER}/`) && !id.includes('..'), 'Invalid image id')
     .nullable()
     .optional(),
 });
