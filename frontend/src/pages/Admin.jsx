@@ -304,8 +304,8 @@ export default function Admin({ openPage }) {
     }
   }
 
-// Helper to compress and convert image to lightweight Data URL (< 120KB)
-function compressImageFile(file, maxDimension = 1000, quality = 0.82) {
+// Helper to compress and convert image to lightweight Data URL (< 80KB)
+function compressImageFile(file, maxDimension = 800, quality = 0.78) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = () => reject(new Error("Failed to read image file."));
