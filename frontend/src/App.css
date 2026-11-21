@@ -702,7 +702,7 @@ a {
 }
 
 .hero-visual {
-  width: 360px;
+  width: 420px;
   height: 360px;
   position: relative;
   display: flex;
@@ -712,8 +712,8 @@ a {
 }
 
 .hero-circle {
-  width: 290px;
-  height: 290px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary), var(--cyan), var(--green));
   opacity: 0.15;
@@ -728,7 +728,7 @@ a {
 .hero-product-image {
   position: absolute;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 25px rgba(7, 89, 133, 0.18));

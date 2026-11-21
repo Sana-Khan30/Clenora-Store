@@ -1,4 +1,4 @@
-import cleaningProducts from "../assets/clenora-products.png";
+import cleaningProducts from "../assets/hero-products.png";
 import ProductCard from "../components/ProductCard";
 import { useStore } from "../context/storeContext";
 
