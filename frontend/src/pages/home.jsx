@@ -35,18 +35,18 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
       {/* 1. HERO SECTION */}
       <section className="hero">
         <div className="hero-content">
-          <span className="hero-badge">CLEAN • FRESH • SMART</span>
+          <span className="hero-badge">BEAUTY • CARE • CONFIDENCE</span>
 
-          <h1>
-            A cleaner home.
-            <br />
-            A better life.
-          </h1>
+          <h1>Your Beauty. Your Care. Your Confidence.</h1>
+
+          <h2 className="hero-subheading">
+            Everything You Need to Feel Your Best.
+          </h2>
 
           <p>
-            Experience hospital-grade hygiene formulated with gentle plant
-            enzymes. CLENORA removes stubborn grime, grease, and germs while
-            keeping your indoor air fresh and safe.
+            Discover your everyday beauty and personal care essentials. From
+            skincare to body care, find trusted products that keep you feeling
+            fresh, healthy, and confident.
           </p>
 
           <div className="hero-buttons">
@@ -55,7 +55,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
               className="primary-btn"
               onClick={handleShopNow}
             >
-              Shop All Products →
+              Shop Now
             </button>
 
             <button
@@ -63,23 +63,23 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
               className="secondary-btn"
               onClick={handleExploreCategories}
             >
-              Explore Categories
+              Explore Products
             </button>
           </div>
 
           {/* QUICK TRUST BADGES */}
           <div className="hero-trust-row">
             <div className="trust-pill">
-              <span className="trust-icon">🌱</span>
-              <span>100% Eco-Safe</span>
+              <span className="trust-icon">✨</span>
+              <span>100% Authentic</span>
             </div>
             <div className="trust-pill">
               <span className="trust-icon">🚚</span>
               <span>Nationwide Fast Delivery</span>
             </div>
             <div className="trust-pill">
-              <span className="trust-icon">🛡️</span>
-              <span>Non-Toxic Fumes</span>
+              <span className="trust-icon">🌿</span>
+              <span>Dermatologist Approved</span>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ function Home({ addToCart, wishlist = [], toggleWishlist, openPage }) {
           <div className="hero-circle" />
           <img
             src={cleaningProducts}
-            alt="CLENORA Premium Cleaning Bottles"
+            alt="CLENORA Beauty & Personal Care Essentials"
             className="hero-product-image"
           />
         </div>
